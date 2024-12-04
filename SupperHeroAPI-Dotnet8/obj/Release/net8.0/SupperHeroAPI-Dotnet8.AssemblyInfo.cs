@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("SupperHeroAPI-Dotnet8")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26eba55e6b5d9acfbd4ca5d194713c146d5bdf4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SupperHeroAPI-Dotnet8")]
