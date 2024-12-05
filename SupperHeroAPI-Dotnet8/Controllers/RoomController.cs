@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SupperHeroAPI_Dotnet8.Entities;
 using SupperHeroAPI_Dotnet8.UnitOfWork;
 
 namespace SupperHeroAPI_Dotnet8.Controllers
@@ -13,9 +14,11 @@ namespace SupperHeroAPI_Dotnet8.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+        [HttpGet]
         public async Task<IActionResult> getAll()
         {
-            return await _unitOfWork._roomRepository.GetAllAsync();
+            var room = await _unitOfWork!.Repository<Room>().GetAllAsync();
+            return Ok(room);
         }
     }
 }

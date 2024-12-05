@@ -4,7 +4,7 @@ namespace SupperHeroAPI_Dotnet8.UnitOfWork
 {
     public interface IUnitOfWork 
     {
-       public IRoomRepository roomRepository { get;  }
+        public IGenericRepository<T> Repository<T>() where T : class;
         Task<int> SaveChangesAsync();
     }
 }
