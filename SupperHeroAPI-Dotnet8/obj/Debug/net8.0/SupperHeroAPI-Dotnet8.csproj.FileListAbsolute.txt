@@ -335,3 +335,4 @@ C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\re
 C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\SupperHeroAPI-Dotnet8.pdb
 C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\SupperHeroAPI-Dotnet8.genruntimeconfig.cache
 C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\ref\SupperHeroAPI-Dotnet8.dll
+C:\Users\uyen.nguyen\source\repos\SupperHeroAPI-Dotnet8\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\SupperHeroAPI-Dotnet8.sourcelink.json

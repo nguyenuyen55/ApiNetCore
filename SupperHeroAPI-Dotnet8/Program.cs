@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SupperHeroAPI_Dotnet8.Data;
+using SupperHeroAPI_Dotnet8.Respository;
+using SupperHeroAPI_Dotnet8.Respository.impRepository;
+using SupperHeroAPI_Dotnet8.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,11 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+//config repository
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+
+
 
 var app = builder.Build();
 

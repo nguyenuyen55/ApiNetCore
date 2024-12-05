@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SupperHeroAPI_Dotnet8.Data;
 
@@ -11,9 +12,11 @@ using SupperHeroAPI_Dotnet8.Data;
 namespace SupperHeroAPI_Dotnet8.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20241205063146_update-dbhotel")]
+    partial class updatedbhotel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,9 +129,6 @@ namespace SupperHeroAPI_Dotnet8.Migrations
 
                     b.Property<int>("RoomTypeID")
                         .HasColumnType("int");
-
-                    b.Property<bool?>("isActive")
-                        .HasColumnType("bit");
 
                     b.Property<int>("status")
                         .HasColumnType("int");
