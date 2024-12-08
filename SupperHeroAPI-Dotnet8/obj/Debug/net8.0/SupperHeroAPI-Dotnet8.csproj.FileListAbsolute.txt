@@ -336,3 +336,6 @@ C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\Su
 C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\SupperHeroAPI-Dotnet8.genruntimeconfig.cache
 C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\ref\SupperHeroAPI-Dotnet8.dll
 C:\Users\uyen.nguyen\source\repos\SupperHeroAPI-Dotnet8\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\SupperHeroAPI-Dotnet8.sourcelink.json
+C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\bin\Debug\net8.0\SupperHeroAPI-Dotnet8.staticwebassets.runtime.json
+C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll

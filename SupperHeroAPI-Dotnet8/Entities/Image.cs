@@ -1,4 +1,6 @@
-﻿namespace SupperHeroAPI_Dotnet8.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace SupperHeroAPI_Dotnet8.Entities
 {
     public class Image
     {
@@ -14,6 +16,8 @@
 
         public int id { get; set; }
         public int RoomID { get; set; }
+        public string? NameImage { get; set; }
+        [JsonIgnore]
         public Room? Room { get; set; }
         public DateTime dateTime { get; set; }= DateTime.Now;
 

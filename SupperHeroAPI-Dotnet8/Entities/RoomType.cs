@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
+using System.Text.Json.Serialization;
+
 
 namespace SupperHeroAPI_Dotnet8.Entities
 {
@@ -11,7 +13,8 @@ namespace SupperHeroAPI_Dotnet8.Entities
         public required string Name { get; set; }
         public required string Description { get; set; }
         public required double PricePerNight { get; set; }
-      public  ICollection<Room>? Rooms { get; set;}
+        [JsonIgnore]
+        public  ICollection<Room>? Rooms { get; set;}
 
     }
 }
