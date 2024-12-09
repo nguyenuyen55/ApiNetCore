@@ -19,9 +19,9 @@ namespace SupperHeroAPI_Dotnet8.Controllers
             _roomService = roomService;
         }
         [HttpGet("getAll")]
-        public async Task<IActionResult> getAll()
+        public async Task<IActionResult> getAll(string? search)
         {
-            var rooms = await _roomService.getRoomAll();
+            var rooms = await _roomService.getRoomAll(search);
             return StatusCode(rooms.stautsCode, rooms);
         }
         [HttpGet("{id}")]
@@ -30,16 +30,29 @@ namespace SupperHeroAPI_Dotnet8.Controllers
             var room = await _roomService.getRoomById(id);
             return StatusCode(room.stautsCode, room);
         }
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> ChangeStatus(int id,[FromBody] string statusInput)
+        {
+            var room = await _roomService.ChangeStatusRoom(id, statusInput);
+            return StatusCode(room.stautsCode, room);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateRoom([FromForm] RoomRequestDTO roomRequestDTO)
         {
             var result = await _roomService!.InsertRoom(roomRequestDTO);
             return StatusCode(result.stautsCode,result);
         }
-        [HttpPost("update")]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateRoom([FromQuery] int idRoom,[FromForm] RoomRequestDTO roomRequestDTO)
         {
             var result = await _roomService!.UpdateRoom(idRoom,roomRequestDTO);
+            return StatusCode(result.stautsCode, result);
+        }
+
+        [HttpDelete("delete")]
+        public async Task<IActionResult> RemoveRoom([FromQuery] int idRoom)
+        {
+            var result = await _roomService!.DeleteRoom(idRoom);
             return StatusCode(result.stautsCode, result);
         }
     }

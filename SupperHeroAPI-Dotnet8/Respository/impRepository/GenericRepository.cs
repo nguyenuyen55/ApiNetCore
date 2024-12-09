@@ -48,7 +48,7 @@ namespace SupperHeroAPI_Dotnet8.Respository.impRepository
             //filter
             if(filter != null)
             {
-                query.Where(filter);
+                query= query.Where(filter);
             }
            return  await query.ToListAsync();
         }

@@ -1,43 +1,55 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\14741e0f-bf1d-45f0-9581-62b92cf55cc7_08122024_134634_anh5.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\14741e0f-bf1d-45f0-9581-62b92cf55cc7_08122024_134634_anh5.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\14741e0f-bf1d-45f0-9581-62b92cf55cc7_08122024_134634_anh5.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\1fa07dcb-f445-404b-a656-99edc2e5f08c_07122024_225135_anh4.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\1879e3dc-b5fe-41d6-9244-78f02e610970_08122024_215512_anh4.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hotel\\1879e3dc-b5fe-41d6-9244-78f02e610970_08122024_215512_anh4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\1fa07dcb-f445-404b-a656-99edc2e5f08c_07122024_225135_anh4.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\1fa07dcb-f445-404b-a656-99edc2e5f08c_07122024_225135_anh4.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\369d2cd9-2d5f-44b3-a5df-21bbc5b526ba_07122024_225353_anh4.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\2a6afa90-9e6b-4063-8992-7e49fdc3dc09_09122024_095626_room202.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hotel\\2a6afa90-9e6b-4063-8992-7e49fdc3dc09_09122024_095626_room202.jpg"
+    },
+    {
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\3622f9dc-cce7-441a-84f8-ba9fd73b3d8f_09122024_093543_anhrom1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Hotel\\3622f9dc-cce7-441a-84f8-ba9fd73b3d8f_09122024_093543_anhrom1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\369d2cd9-2d5f-44b3-a5df-21bbc5b526ba_07122024_225353_anh4.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\369d2cd9-2d5f-44b3-a5df-21bbc5b526ba_07122024_225353_anh4.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\43797f35-8262-48e7-8c0d-6b8f2d402737_07122024_225100_anh4.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\43797f35-8262-48e7-8c0d-6b8f2d402737_07122024_225100_anh4.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\43797f35-8262-48e7-8c0d-6b8f2d402737_07122024_225100_anh4.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\451044d5-a861-451c-86dc-a9bd6dfecdbe_08122024_140834_anh5.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\451044d5-a861-451c-86dc-a9bd6dfecdbe_08122024_140834_anh5.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\451044d5-a861-451c-86dc-a9bd6dfecdbe_08122024_140834_anh5.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\586e95a5-4e63-4654-9f8d-76a1ac848ffe_08122024_135411_anh5.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\586e95a5-4e63-4654-9f8d-76a1ac848ffe_08122024_135411_anh5.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\586e95a5-4e63-4654-9f8d-76a1ac848ffe_08122024_135411_anh5.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\66c1ae36-38a7-4550-b946-f663135d371e_08122024_133243_anh4.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\66c1ae36-38a7-4550-b946-f663135d371e_08122024_133243_anh4.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\66c1ae36-38a7-4550-b946-f663135d371e_08122024_133243_anh4.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\6d925059-88f8-4b41-ae23-dc0cea7c043c_08122024_133415_anh4.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\6d925059-88f8-4b41-ae23-dc0cea7c043c_08122024_133415_anh4.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\6d925059-88f8-4b41-ae23-dc0cea7c043c_08122024_133415_anh4.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\abac46b8-6fd7-4ca1-ac4c-cf7faa15d8ea_07122024_224923_anh4.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\abac46b8-6fd7-4ca1-ac4c-cf7faa15d8ea_07122024_224923_anh4.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\abac46b8-6fd7-4ca1-ac4c-cf7faa15d8ea_07122024_224923_anh4.jpg"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\ad33b54b-58f6-4c0c-8210-3fc2693f8f38_07122024_224829_anh4.jpg",
+      "Id": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\ad33b54b-58f6-4c0c-8210-3fc2693f8f38_07122024_224829_anh4.jpg",
       "PackagePath": "staticwebassets\\Images\\Hotel\\ad33b54b-58f6-4c0c-8210-3fc2693f8f38_07122024_224829_anh4.jpg"
     },
     {

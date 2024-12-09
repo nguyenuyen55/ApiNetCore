@@ -23,6 +23,8 @@ namespace SupperHeroAPI_Dotnet8.Data
                 .HasKey(r => r.Id);
             //table room
             modelBuilder.Entity<Room>().HasKey(r => r.IdRoom);
+            modelBuilder.Entity<Room>().Property(e=>e.status)
+                .HasConversion<string>();
             modelBuilder.Entity<Room>()
                 .HasOne(r => r.RoomType)
                 .WithMany(rt=>rt.Rooms)

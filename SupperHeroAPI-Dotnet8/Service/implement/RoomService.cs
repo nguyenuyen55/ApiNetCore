@@ -16,15 +16,66 @@ namespace SupperHeroAPI_Dotnet8.Service.implement
             _unitOfWork= unitOfWork;
             _dataContext= dataContext;
         }
-        public Task<ApiResponse<bool>> DeleteRoom(int idRoom)
+
+        public async Task<ApiResponse<bool>> ChangeStatusRoom(int idRoom, string status)
         {
-            throw new NotImplementedException();
+            var room = await _dataContext.Rooms.Where(x => x.IdRoom == idRoom).FirstOrDefaultAsync();
+
+            if (room == null)
+            {
+                return new ApiResponse<bool>()
+                {
+                    stautsCode = 404,
+                    message = "Not found Room",
+                    data = false
+                };
+            }
+            if (!Enum.IsDefined(typeof(Status),status))
+            {
+                return new ApiResponse<bool>()
+                {
+                    stautsCode = 404,
+                    message = "Status not valid ",
+                    data = false
+                };
+            }
+            room.status = Enum.TryParse(status, true, out Status result) ? result : Status.Available; ;
+             await _unitOfWork.SaveChangesAsync();
+            return new ApiResponse<bool>()
+            {
+                stautsCode = 200,
+                message = "Change status success",
+                data = false
+            };
         }
 
-        public async Task<ApiResponse<IEnumerable<Room>>> getRoomAll()
+        public async Task<ApiResponse<bool>> DeleteRoom(int idRoom)
         {
-            var listRoom= await _unitOfWork.Repository<Room>().GetAllAsync(null,x=>x.RoomType,x=>x.Images);
-            if (listRoom == null)
+            var room = await _dataContext.Rooms.Where(x => x.IdRoom == idRoom).FirstOrDefaultAsync();
+
+            if (room == null)
+            {
+                return new ApiResponse<bool>()
+                {
+                    stautsCode = 404,
+                    message = "Not found Room",
+                    data = false
+                };
+            }
+            room.isActive = false;
+            await _unitOfWork.SaveChangesAsync();
+            return new ApiResponse<bool>()
+            {
+                stautsCode = 200,
+                message = "Delete Room Success",
+                data = true
+            };
+        }
+
+        public async Task<ApiResponse<IEnumerable<Room>>> getRoomAll(string? search)
+        {
+            var listRoom= await _unitOfWork.Repository<Room>().GetAllAsync(room=>room.isActive==true ,x=>x.RoomType,x=>x.Images);
+            if (listRoom.Count()==0)
             {
                 return new ApiResponse<IEnumerable<Room>>()
                 {
@@ -79,8 +130,9 @@ namespace SupperHeroAPI_Dotnet8.Service.implement
                 };
             }
 
-            var roomBDExitRoomNumber = _unitOfWork.Repository<Room>().GetAllAsync(x=>x.RoomNumber.Equals(roomRequest.NumberRoom));
-            if (roomBDExitRoomNumber != null) {
+            var roomBDExitRoomNumber = await _unitOfWork.Repository<Room>().GetAllAsync(x=>(x.RoomNumber==roomRequest.NumberRoom && x.isActive==true));
+            var rooms = _dataContext.Rooms.Where(x => (x.RoomNumber == roomRequest.NumberRoom && x.isActive == true));
+            if (roomBDExitRoomNumber.Count()>0) {
                 return new ApiResponse<Room>()
                 {
                     stautsCode = 400,

@@ -16,6 +16,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\14741e0f-bf1d-45f0-9581-62b92cf55cc7_08122024_134634_anh5.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\1879e3dc-b5fe-41d6-9244-78f02e610970_08122024_215512_anh4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>SupperHeroAPI-Dotnet8</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SupperHeroAPI-Dotnet8</BasePath>
+      <RelativePath>Images/Hotel/1879e3dc-b5fe-41d6-9244-78f02e610970_08122024_215512_anh4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\1879e3dc-b5fe-41d6-9244-78f02e610970_08122024_215512_anh4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\1fa07dcb-f445-404b-a656-99edc2e5f08c_07122024_225135_anh4.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>SupperHeroAPI-Dotnet8</SourceId>
@@ -31,6 +47,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\1fa07dcb-f445-404b-a656-99edc2e5f08c_07122024_225135_anh4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\2a6afa90-9e6b-4063-8992-7e49fdc3dc09_09122024_095626_room202.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>SupperHeroAPI-Dotnet8</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SupperHeroAPI-Dotnet8</BasePath>
+      <RelativePath>Images/Hotel/2a6afa90-9e6b-4063-8992-7e49fdc3dc09_09122024_095626_room202.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\2a6afa90-9e6b-4063-8992-7e49fdc3dc09_09122024_095626_room202.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\3622f9dc-cce7-441a-84f8-ba9fd73b3d8f_09122024_093543_anhrom1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>SupperHeroAPI-Dotnet8</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SupperHeroAPI-Dotnet8</BasePath>
+      <RelativePath>Images/Hotel/3622f9dc-cce7-441a-84f8-ba9fd73b3d8f_09122024_093543_anhrom1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\3622f9dc-cce7-441a-84f8-ba9fd73b3d8f_09122024_093543_anhrom1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Hotel\369d2cd9-2d5f-44b3-a5df-21bbc5b526ba_07122024_225353_anh4.jpg))">
       <SourceType>Package</SourceType>
