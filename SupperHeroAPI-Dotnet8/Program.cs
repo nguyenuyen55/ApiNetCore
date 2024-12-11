@@ -27,6 +27,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 //config repository
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IRoomService, RoomService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
 
 
 

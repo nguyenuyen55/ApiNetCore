@@ -22,7 +22,7 @@ namespace SupperHeroAPI_Dotnet8.Entities
 
     }
     public enum PaymentMethod
-    {
+    {Unpaid,
         CreditCard, 
         Cash, 
         BankTransfer

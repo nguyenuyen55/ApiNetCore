@@ -53,9 +53,10 @@ namespace SupperHeroAPI_Dotnet8.Respository.impRepository
            return  await query.ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync<TId, T>(TId id) where T : class
         {
             return await _context!.Set<T>().FindAsync(id);
+             
         }
 
         public async Task UpdateAsync(T t)

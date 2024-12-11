@@ -16,7 +16,7 @@ namespace SupperHeroAPI_Dotnet8.Entities
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
         public statusBooking status { get; set; } = statusBooking.Pending;
-        public DateTime CreateAt { get; set; } = DateTime.Now;
+        public DateTime? CreateAt { get; set; } = DateTime.Now;
         public Payment? Payment { get; set; }
     }
     public enum statusBooking

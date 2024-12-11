@@ -156,7 +156,7 @@ namespace SupperHeroAPI_Dotnet8.Service.implement
             try
             {
                 //insert roomType
-                var roomType = await _unitOfWork.Repository<RoomType>().GetByIdAsync(roomRequest.IdRoomType);
+                var roomType = await _unitOfWork.Repository<RoomType>().GetByIdAsync<int, RoomType>(roomRequest.IdRoomType);
                 if (roomType == null)
                 {
                     return new ApiResponse<Room>()
@@ -254,7 +254,7 @@ namespace SupperHeroAPI_Dotnet8.Service.implement
                     };
                 }
 
-                var roomType = await _unitOfWork.Repository<RoomType>().GetByIdAsync(roomRequest.IdRoomType);
+                var roomType = await _unitOfWork.Repository<RoomType>().GetByIdAsync<int,RoomType>(roomRequest.IdRoomType);
                 if (roomType == null)
                 {
                     return new ApiResponse<Room>()
