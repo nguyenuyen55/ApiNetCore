@@ -26,8 +26,8 @@ namespace SupperHeroAPI_Dotnet8.Controllers
             var result = await _bookingsService.getListBooking();
             return StatusCode(result.stautsCode, result);
         }
-        [HttpGet]
-        public async Task<IActionResult> CheckBookingAvailable(string checkIn,string checkOut)
+        [HttpGet("CheckBookingAvailable")]
+        public async Task<IActionResult> CheckBookingAvailable ( [FromQuery] string checkIn, [FromQuery] string checkOut)
         {
             var result = await _bookingsService.CheckBookingAvailable(checkIn, checkOut);
             return StatusCode(result.stautsCode, result);

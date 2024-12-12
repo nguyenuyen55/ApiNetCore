@@ -1,4 +1,5 @@
-﻿using SupperHeroAPI_Dotnet8.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SupperHeroAPI_Dotnet8.Data;
 using SupperHeroAPI_Dotnet8.DTO;
 using SupperHeroAPI_Dotnet8.DTO.Booking;
 using SupperHeroAPI_Dotnet8.Entities;
@@ -20,9 +21,16 @@ namespace SupperHeroAPI_Dotnet8.Service.implement
             throw new NotImplementedException();
         }
 
-        public Task<ApiResponse<IEnumerable<Booking>>> CheckBookingAvailable(string checkIn, string checkOut)
+        public Task<ApiResponse<IEnumerable<Room>>> CheckBookingAvailable(string checkIn, string checkOut)
         {
-            //var listBookingAvailable=_dataContext.bookings.Where()
+            var listBookingAvailable = _dataContext.bookings.ToListAsync();
+
+            //var roomAvailable = _dataContext.Rooms.Where(r => !_dataContext.bookings
+            //.Where(b=>b.CheckOutDate>checkIn && b.CheckInDate<checkOut)
+            
+            //);
+                                
+
 
             throw new NotImplementedException();
         }
