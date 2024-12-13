@@ -32,5 +32,12 @@ namespace SupperHeroAPI_Dotnet8.Controllers
             var result = await _bookingsService.CheckBookingAvailable(checkIn, checkOut);
             return StatusCode(result.stautsCode, result);
         }
+        [HttpPut("{id}/Cancel")]
+        public async Task<IActionResult> ChangeStatus(string id)
+        {
+            var result = await _bookingsService.CancelBooking(id);
+            
+            return Ok(id);
+        }
     }
 }

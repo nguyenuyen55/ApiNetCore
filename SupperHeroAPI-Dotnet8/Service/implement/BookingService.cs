@@ -5,6 +5,7 @@ using SupperHeroAPI_Dotnet8.DTO.Booking;
 using SupperHeroAPI_Dotnet8.Entities;
 using SupperHeroAPI_Dotnet8.Service.interfaces;
 using SupperHeroAPI_Dotnet8.UnitOfWork;
+using System.Collections.Generic;
 
 namespace SupperHeroAPI_Dotnet8.Service.implement
 {
@@ -16,23 +17,70 @@ namespace SupperHeroAPI_Dotnet8.Service.implement
         _unitOfWork = unitOfWork;
           _dataContext = dataContext;
         }
-        public Task<ApiResponse<bool>> CancelBooking()
+        public async Task<ApiResponse<bool>> CancelBooking(string id)
         {
-            throw new NotImplementedException();
+            Guid idBookingGuid = new Guid(id);
+            var booking = await _unitOfWork.Repository<Booking>().GetByIdAsync<Guid, Booking>(idBookingGuid);
+            if(booking == null)
+            {
+                return new ApiResponse<bool>()
+                {
+                    stautsCode = 404,
+                    message = "Room not found",
+                    data = false
+                };
+            }
+            if(booking.status==statusBooking.Cancelled || booking.CheckInDate <= DateTime.Now)
+            {
+                return new ApiResponse<bool>()
+                {
+                    stautsCode = 400,
+                    message = "Booking cannot be cancelled because it is already checked-in or cancelled.",
+                    data = false
+                };
+            }
+            booking.status= statusBooking.Cancelled;
+            await _unitOfWork.SaveChangesAsync();
+
+            return new ApiResponse<bool>()
+            {
+                stautsCode = 200,
+                message = "Booking cancelled success",
+                data = true
+            };
         }
 
-        public Task<ApiResponse<IEnumerable<Room>>> CheckBookingAvailable(string checkIn, string checkOut)
+        public async Task<ApiResponse<IEnumerable<Room>>> CheckBookingAvailable(string checkIn, string checkOut)
         {
-            var listBookingAvailable = _dataContext.bookings.ToListAsync();
+            DateTime checkInDate = DateTime.ParseExact(checkIn, "yyyy-MM-dd",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+            DateTime checkOutDate = DateTime.ParseExact(checkOut, "yyyy-MM-dd",
+                                      System.Globalization.CultureInfo.InvariantCulture);
+            var roomAvailable = await _dataContext.Rooms
+                .Where(r => !_dataContext.bookingRooms
+                            .Where(rb =>
+                                rb.Booking.CheckOutDate > checkInDate &&
+                                rb.Booking.CheckInDate < checkOutDate)
+                            .Select(rb => rb.IdRoom)
+                            .Contains(r.IdRoom)
+                          && r.status == Status.Available)
+                .ToListAsync();
 
-            //var roomAvailable = _dataContext.Rooms.Where(r => !_dataContext.bookings
-            //.Where(b=>b.CheckOutDate>checkIn && b.CheckInDate<checkOut)
-            
-            //);
-                                
-
-
-            throw new NotImplementedException();
+            if(roomAvailable.Count()==0)
+            {
+                return new ApiResponse<IEnumerable<Room>>()
+                {
+                    stautsCode = 404,
+                    message = "Room not found",
+                    data = null
+                };
+            }
+            return new ApiResponse<IEnumerable<Room>>()
+            {
+                stautsCode = 200,
+                message = "List room Available",
+                data = roomAvailable
+            };
         }
 
         public async Task<ApiResponse<Booking>> CreateBooking(BookingInsert bookingInsert)

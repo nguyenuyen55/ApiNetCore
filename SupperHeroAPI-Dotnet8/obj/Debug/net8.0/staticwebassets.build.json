@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jPXF7UwSmRhZc8Fkn5wParPc6GLUNhv161edBrWI+KI=",
+  "Hash": "7BajUqUiB+6L0r5ZZGHttFaN1HvQeXYc9q7xR2HNvNo=",
   "Source": "SupperHeroAPI-Dotnet8",
   "BasePath": "_content/SupperHeroAPI-Dotnet8",
   "Mode": "Default",
@@ -169,6 +169,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\Hotel\\451044d5-a861-451c-86dc-a9bd6dfecdbe_08122024_140834_anh5.jpg"
     },
     {
+      "Identity": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\50bc6cc9-e14b-4df9-9547-371be6f867f7_13122024_085521_room203.jpg",
+      "SourceId": "SupperHeroAPI-Dotnet8",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\",
+      "BasePath": "_content/SupperHeroAPI-Dotnet8",
+      "RelativePath": "Images/Hotel/50bc6cc9-e14b-4df9-9547-371be6f867f7_13122024_085521_room203.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Hotel\\50bc6cc9-e14b-4df9-9547-371be6f867f7_13122024_085521_room203.jpg"
+    },
+    {
       "Identity": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\586e95a5-4e63-4654-9f8d-76a1ac848ffe_08122024_135411_anh5.jpg",
       "SourceId": "SupperHeroAPI-Dotnet8",
       "SourceType": "Discovered",
@@ -226,6 +245,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\Hotel\\6d925059-88f8-4b41-ae23-dc0cea7c043c_08122024_133415_anh4.jpg"
     },
     {
+      "Identity": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\8efb1d96-2728-4b64-b55f-fbb0bbca4ced_13122024_085507_room203.jpg",
+      "SourceId": "SupperHeroAPI-Dotnet8",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\",
+      "BasePath": "_content/SupperHeroAPI-Dotnet8",
+      "RelativePath": "Images/Hotel/8efb1d96-2728-4b64-b55f-fbb0bbca4ced_13122024_085507_room203.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Hotel\\8efb1d96-2728-4b64-b55f-fbb0bbca4ced_13122024_085507_room203.jpg"
+    },
+    {
       "Identity": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\abac46b8-6fd7-4ca1-ac4c-cf7faa15d8ea_07122024_224923_anh4.jpg",
       "SourceId": "SupperHeroAPI-Dotnet8",
       "SourceType": "Discovered",
@@ -262,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Hotel\\ad33b54b-58f6-4c0c-8210-3fc2693f8f38_07122024_224829_anh4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\Images\\Hotel\\c7f2c852-1fda-43e4-a521-7ff3211dbfe8_13122024_085449_room203.jpg",
+      "SourceId": "SupperHeroAPI-Dotnet8",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\uyen.nguyen\\source\\repos\\ApiNetCore\\SupperHeroAPI-Dotnet8\\wwwroot\\",
+      "BasePath": "_content/SupperHeroAPI-Dotnet8",
+      "RelativePath": "Images/Hotel/c7f2c852-1fda-43e4-a521-7ff3211dbfe8_13122024_085449_room203.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Hotel\\c7f2c852-1fda-43e4-a521-7ff3211dbfe8_13122024_085449_room203.jpg"
     }
   ]
 }

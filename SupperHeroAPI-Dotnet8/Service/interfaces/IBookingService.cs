@@ -9,6 +9,6 @@ namespace SupperHeroAPI_Dotnet8.Service.interfaces
         Task<ApiResponse<IEnumerable<Booking>>> getListBooking();
         Task<ApiResponse<IEnumerable<Room>>> CheckBookingAvailable(string checkIn,string checkOut);
         Task<ApiResponse<Booking>> CreateBooking(BookingInsert bookingInsert);
-        Task<ApiResponse<bool>> CancelBooking();
+        Task<ApiResponse<bool>> CancelBooking(string id);
     }
 }

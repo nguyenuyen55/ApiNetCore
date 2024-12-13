@@ -36,6 +36,9 @@ namespace SupperHeroAPI_Dotnet8.Data
         
             modelBuilder.Entity<Booking>().HasKey(booking => booking.Id);
             modelBuilder.Entity<Booking>()
+             .Property(e => e.status)
+             .HasConversion<string>();
+            modelBuilder.Entity<Booking>()
                 .HasOne(booking => booking.User)
                 .WithMany(user => user.bookings)
                 .HasForeignKey(booking => booking.UserId);
