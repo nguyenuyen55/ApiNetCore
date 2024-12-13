@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using SupperHeroAPI_Dotnet8.Data;
 using SupperHeroAPI_Dotnet8.Respository;
@@ -5,6 +6,8 @@ using SupperHeroAPI_Dotnet8.Respository.impRepository;
 using SupperHeroAPI_Dotnet8.Service.implement;
 using SupperHeroAPI_Dotnet8.Service.interfaces;
 using SupperHeroAPI_Dotnet8.UnitOfWork;
+using System.Text;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,9 +32,11 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+//Authour
+var secretKey = builder.Configuration["AppSettings:SecretKet"];
+var secretKeyBytes=Encoding.UTF8.GetBytes(secretKey);
 
-
-
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme);
 
 var app = builder.Build();
 
