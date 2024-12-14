@@ -18,59 +18,70 @@ namespace SupperHeroAPI_Dotnet8.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>().HasKey(x=>x.UserId);
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(x => x.UserId);
+                entity.HasIndex(x => x.userName).IsUnique();
+            });
             modelBuilder.Entity<RoomType>()
                 .HasKey(r => r.Id);
             //table room
-            modelBuilder.Entity<Room>().HasKey(r => r.IdRoom);
+            modelBuilder.Entity<Room>(entity =>
+            {
+                entity.HasKey(r => r.IdRoom);
 
-            modelBuilder.Entity<Room>()
-                .Property(e=>e.status)
-                .HasConversion<string>();
-            modelBuilder.Entity<Room>()
-                .HasOne(r => r.RoomType)
-                .WithMany(rt=>rt.Rooms)
-                .HasForeignKey(r=>r.RoomTypeID);
-       
+                entity.Property(e => e.status)
+                      .HasConversion<string>();
+
+                entity.HasOne(r => r.RoomType)
+                      .WithMany(rt => rt.Rooms)
+                      .HasForeignKey(r => r.RoomTypeID);
+            });
             //table booking
-        
-            modelBuilder.Entity<Booking>().HasKey(booking => booking.Id);
-            modelBuilder.Entity<Booking>()
-             .Property(e => e.status)
-             .HasConversion<string>();
-            modelBuilder.Entity<Booking>()
-                .HasOne(booking => booking.User)
-                .WithMany(user => user.bookings)
-                .HasForeignKey(booking => booking.UserId);
+            modelBuilder.Entity<Booking>(entity =>
+            {
+               entity.HasKey(booking => booking.Id);
+               entity.Property(e => e.status)
+                     .HasConversion<string>();
+                entity.HasOne(booking => booking.User)
+                    .WithMany(user => user.bookings)
+                    .HasForeignKey(booking => booking.UserId);
+            });
 
             // bảng trung gian
-            modelBuilder.Entity<BookingRoom>().HasKey(br => new { br.IdBooking, br.IdRoom });
+            modelBuilder.Entity<BookingRoom>(entity =>
+            {
+                entity.HasKey(br => new { br.IdBooking, br.IdRoom });
 
-            modelBuilder.Entity<BookingRoom>()
-                .HasOne(bookingRoom => bookingRoom.Room)
-                .WithMany(room => room.BookingRooms)
-                .HasForeignKey(bookingRoom => bookingRoom.IdRoom);
+                entity.HasOne(bookingRoom => bookingRoom.Room)
+                    .WithMany(room => room.BookingRooms)
+                    .HasForeignKey(bookingRoom => bookingRoom.IdRoom);
+                entity.HasOne(bookingRoom => bookingRoom.Booking)
+                    .WithMany(room => room.BookingRooms)
+                    .HasForeignKey(bookingRoom => bookingRoom.IdBooking);
+            });
 
-            modelBuilder.Entity<BookingRoom>()
-                .HasOne(bookingRoom => bookingRoom.Booking)
-                .WithMany(room => room.BookingRooms)
-                .HasForeignKey(bookingRoom => bookingRoom.IdBooking);
 
             //Payment
-            modelBuilder.Entity<Payment>().HasKey(payment => payment.Id);
-            modelBuilder.Entity<Payment>()
-               .Property(e => e.paymentMethod)
-               .HasConversion<string>();
-            modelBuilder.Entity<Payment>()
-                .HasOne(Payment => Payment.Booking)
-                .WithOne(booking => booking.Payment)
-                .HasForeignKey<Payment>(payment=>payment.BookingID);
+            modelBuilder.Entity<Payment>(entity =>
+            {
+                entity.HasKey(payment => payment.Id);
+                entity.Property(e => e.paymentMethod)
+                      .HasConversion<string>();
+                entity.HasOne(Payment => Payment.Booking)
+                    .WithOne(booking => booking.Payment)
+                    .HasForeignKey<Payment>(payment => payment.BookingID);
+            });
+
             //image
-            modelBuilder.Entity<Image>().HasKey(image => image.id);
-            modelBuilder.Entity<Image>()
-               .HasOne(img=>img.Room)
-               .WithMany(room => room.Images)
-               .HasForeignKey(img=>img.RoomID);
+            modelBuilder.Entity<Image>(entity =>
+            {
+                entity.HasKey(image => image.id);
+                entity.HasOne(img => img.Room)
+                      .WithMany(room => room.Images)
+                      .HasForeignKey(img => img.RoomID);
+            });
+           
         }
     }
 }
