@@ -7,6 +7,7 @@ namespace SupperHeroAPI_Dotnet8.Data
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) :base(options) { }
+        public DbSet<TokenRefresh> TokenRefreshes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
         public DbSet<Room> Rooms { get; set; }
@@ -81,7 +82,8 @@ namespace SupperHeroAPI_Dotnet8.Data
                       .WithMany(room => room.Images)
                       .HasForeignKey(img => img.RoomID);
             });
-           
+           //refresh
+
         }
     }
 }

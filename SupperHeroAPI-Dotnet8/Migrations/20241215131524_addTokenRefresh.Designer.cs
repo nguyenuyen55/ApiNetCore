@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SupperHeroAPI_Dotnet8.Data;
 
@@ -11,9 +12,11 @@ using SupperHeroAPI_Dotnet8.Data;
 namespace SupperHeroAPI_Dotnet8.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20241215131524_addTokenRefresh")]
+    partial class addTokenRefresh
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,6 +124,42 @@ namespace SupperHeroAPI_Dotnet8.Migrations
                     b.ToTable("Payments");
                 });
 
+            modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ExpiredAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("IssuedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("JwtId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.Room", b =>
                 {
                     b.Property<int>("IdRoom")
@@ -172,42 +211,6 @@ namespace SupperHeroAPI_Dotnet8.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RoomTypes");
-                });
-
-            modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.TokenRefresh", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("ExpiredAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsRevoked")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsUsed")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("IssuedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("JwtId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("token")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("TokenRefreshes");
                 });
 
             modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.User", b =>
@@ -302,6 +305,17 @@ namespace SupperHeroAPI_Dotnet8.Migrations
                     b.Navigation("Booking");
                 });
 
+            modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("SupperHeroAPI_Dotnet8.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.Room", b =>
                 {
                     b.HasOne("SupperHeroAPI_Dotnet8.Entities.RoomType", "RoomType")
@@ -311,17 +325,6 @@ namespace SupperHeroAPI_Dotnet8.Migrations
                         .IsRequired();
 
                     b.Navigation("RoomType");
-                });
-
-            modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.TokenRefresh", b =>
-                {
-                    b.HasOne("SupperHeroAPI_Dotnet8.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SupperHeroAPI_Dotnet8.Entities.Booking", b =>

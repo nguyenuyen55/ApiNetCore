@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SupperHeroAPI_Dotnet8.DTO;
 using SupperHeroAPI_Dotnet8.Entities;
@@ -19,6 +20,7 @@ namespace SupperHeroAPI_Dotnet8.Controllers
             _roomService = roomService;
         }
         [HttpGet("getAll")]
+        [Authorize]
         public async Task<IActionResult> getAll(string? search)
         {
             var rooms = await _roomService.getRoomAll(search);

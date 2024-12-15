@@ -12,7 +12,7 @@ namespace SupperHeroAPI_Dotnet8.Entities
         public required string email {get; set;}
         public required string phoneNumber {get; set;}
         public RoleName Role {get; set;} = RoleName.Customer;
-        public DateTime CreateAt { get; set;} = DateTime.Now;
+        public DateTime? CreateAt { get; set;} = DateTime.Now;
 
       public  ICollection<Booking>? bookings { get; set;}
         

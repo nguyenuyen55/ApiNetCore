@@ -512,3 +512,4 @@ C:\Users\uyen.nguyen\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net
 C:\Users\uyen.nguyen\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\SupperHeroAPI-Dotnet8.genruntimeconfig.cache
 C:\Users\uyen.nguyen\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\obj\Debug\net8.0\ref\SupperHeroAPI-Dotnet8.dll
 C:\Users\uyen.nguyen\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ADMIN\source\repos\ApiNetCore\SupperHeroAPI-Dotnet8\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
