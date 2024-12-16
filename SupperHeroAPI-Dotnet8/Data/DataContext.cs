@@ -23,6 +23,7 @@ namespace SupperHeroAPI_Dotnet8.Data
             {
                 entity.HasKey(x => x.UserId);
                 entity.HasIndex(x => x.userName).IsUnique();
+                entity.Property(e => e.Role).HasConversion<string>();
             });
             modelBuilder.Entity<RoomType>()
                 .HasKey(r => r.Id);

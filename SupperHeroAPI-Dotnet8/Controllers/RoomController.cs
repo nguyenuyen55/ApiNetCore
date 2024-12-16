@@ -20,7 +20,7 @@ namespace SupperHeroAPI_Dotnet8.Controllers
             _roomService = roomService;
         }
         [HttpGet("getAll")]
-        [Authorize]
+        [Authorize(Roles ="Customer")]
         public async Task<IActionResult> getAll(string? search)
         {
             var rooms = await _roomService.getRoomAll(search);

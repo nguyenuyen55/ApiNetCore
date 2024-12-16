@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -6,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using SupperHeroAPI_Dotnet8.Data;
 using SupperHeroAPI_Dotnet8.DTO;
 using SupperHeroAPI_Dotnet8.Entities;
+using SupperHeroAPI_Dotnet8.Service.interfaces;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -18,12 +21,13 @@ namespace SupperHeroAPI_Dotnet8.Controllers
     public class UserController : ControllerBase
     {
         private readonly DataContext _dataContext;
+        private readonly IUserServices _userService;
         private readonly AppSettings _appSettings;
 
-        public UserController(DataContext dataContext, IOptionsMonitor<AppSettings> appSettings)
+        public UserController(DataContext dataContext, IOptionsMonitor<AppSettings> appSettings, IUserServices userService)
         {
             _dataContext = dataContext;
-
+            _userService= userService;
             _appSettings = appSettings.CurrentValue;
 
         }
@@ -31,31 +35,53 @@ namespace SupperHeroAPI_Dotnet8.Controllers
         [HttpPost]
         public async Task<IActionResult> Validate(LoginModel loginModel)
         {
-            var user =_dataContext.Users.SingleOrDefault(p=>p.userName
-            ==loginModel.Username && p.passWordHash == loginModel.Password);
-            if(user == null)
+            var userInDB = _dataContext.Users.Where(x => x.userName == loginModel.Username).FirstOrDefault();
+            if (userInDB == null)
             {
-                return Ok(new
+                return BadRequest(new
                 {
                     Success = true,
                     Message = "Invaild username/password"
                 });
             }
+
+            byte[] storeSalt = Convert.FromBase64String(userInDB.passWordSalt);
+            if (!VerifyPassword(loginModel.Password, userInDB.passWordHash, storeSalt))
+            {
+                return BadRequest(new
+                {
+                    Success = true,
+                    Message = "Invaild username/password"
+                });
+            }
+
             //cấp token
 
             return Ok(new ApiResponse<object>
             {
                 stautsCode = 200,
                 message = "Authen success",
-                data = await GenerateToken(user)
+                data = await GenerateToken(userInDB)
             });
         }
+
+        private bool VerifyPassword(string password, string passWordHash, byte[] storeSalt)
+        {
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+             password: password!,
+             salt: storeSalt,
+             prf: KeyDerivationPrf.HMACSHA256,
+             iterationCount: 100000,
+             numBytesRequested: 256 / 8));
+            return passWordHash == hashed;
+        }
+
         private async Task<TokenModel> GenerateToken(User user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
 
             var secretKeyBytes=Encoding.UTF8.GetBytes(_appSettings.SecretKey);
-
+            var trung = Guid.NewGuid().ToString();
             var tokenDescription = new SecurityTokenDescriptor
             {
                 Subject = new System.Security.Claims.ClaimsIdentity(new[]
@@ -63,9 +89,11 @@ namespace SupperHeroAPI_Dotnet8.Controllers
                     new Claim(ClaimTypes.Name,user.fullName),
                     new Claim(JwtRegisteredClaimNames.Email,user.email),
                     new Claim(JwtRegisteredClaimNames.Sub,user.email),
-                    new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti,trung),
+                    new Claim(ClaimTypes.Role,user.Role.ToString()),
                     new Claim("UserName",user.userName),
                     new Claim("ID",user.UserId.ToString()),
+                    new Claim("JTI",trung),
 
                     //roles
                     new Claim("TokenID",Guid.NewGuid().ToString()),
@@ -190,16 +218,16 @@ namespace SupperHeroAPI_Dotnet8.Controllers
                 }
 
                 //check 6: AccessToken id == JwtId in RefreshToken
-                //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-                //var jti = tokenInVerification.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Jti).Value;
-                //if (storedToken.JwtId != jti)
-                //{
-                //    return Ok(new ApiResponse<object>
-                //    {
-                //        stautsCode = 400,
-                //        message = "Token doesn't match"
-                //    });
-                //}
+                JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+                var jti = tokenInVerification.Claims.FirstOrDefault(x => x.Type == "JTI").Value;
+                if (storedToken.JwtId != jti)
+                {
+                    return Ok(new ApiResponse<object>
+                    {
+                        stautsCode = 400,
+                        message = "Token doesn't match"
+                    });
+                }
 
                 //Update token is used
                 storedToken.IsRevoked = true;
@@ -227,7 +255,12 @@ namespace SupperHeroAPI_Dotnet8.Controllers
                 });
             }
         }
-
+        [HttpPost("CreateUser")]
+        public async Task<IActionResult> CreateUser([FromForm] UserInsert userInsert)
+        {
+            var result = await _userService!.InsertRoom(userInsert);
+            return StatusCode(result.stautsCode, result);
+        }
         private DateTime ConvertUnixTimeToDateTime(long utcExprieDate)
         {
            var dateTimeInterval= new DateTime(1970,1,1,0,0,0,0,DateTimeKind.Utc);
